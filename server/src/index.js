@@ -7,6 +7,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/auth');
 const adminClientRoutes = require('./routes/admin/clients');
 const clientViewRoutes = require('./routes/client/view');
+const repoRoutes = require('./routes/repo');
 
 const app = express();
 
@@ -38,6 +39,7 @@ function requireRole(role) {
 app.use('/api/auth', authRoutes);
 app.use('/api/admin/clients', authenticateToken, requireRole('admin'), adminClientRoutes);
 app.use('/api/client/view', authenticateToken, requireRole('client'), clientViewRoutes);
+app.use('/repo', repoRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

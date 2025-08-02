@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
 import AdminDashboard from './pages/AdminDashboard';
 import ClientPortal from './pages/ClientPortal';
+import RepoBrowser from './pages/RepoBrowser';
 
 // Simple auth hook using localStorage token
 const useAuth = () => {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
         <Route path="/portal" element={<ClientRoute><ClientPortal /></ClientRoute>} />
+        <Route path="/repo" element={<RepoBrowser />} />
       </Routes>
     </BrowserRouter>
   );
